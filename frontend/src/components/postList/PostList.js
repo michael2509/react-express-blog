@@ -3,7 +3,7 @@ import './PostList.css';
 import Post from '../post/Post';
 import Typography from '@material-ui/core/Typography';
 
-const PostList = ({ posts }) => {
+const PostList = ({ status, posts }) => {
 
     return (
         <div className="posts-wrapper">
@@ -11,13 +11,15 @@ const PostList = ({ posts }) => {
                 Liste des posts
             </Typography>
 
-            {posts.length > 0 ? (
+            {posts.length > 0 && (
                 posts.map((post) => (
                     <Post key={post.id} post={post} />
-                ))  
-            ) : (
-                <p>posts loading...</p>
+                ))
             )}
+
+            {status === 'empty' && <p>No posts found</p>}
+            {status === 'fetching' && <p>Post loading...</p>}
+            {status === 'success' && <p>Post successfully found</p>}
         </div>
     )
 }
