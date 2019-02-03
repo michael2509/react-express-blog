@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Navbar from './components/navbar/Navbar';
-import PostsContainer from './containers/PostsContainer';
+import Navbar from '../navbar/Navbar';
+import PostsContainer from '../../containers/posts-container/PostsContainer';
 
 class App extends Component {
   render() {
