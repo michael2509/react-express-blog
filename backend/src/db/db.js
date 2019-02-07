@@ -1,5 +1,5 @@
 const posts = {
-    items: [
+    posts: [
         {
             id: 1,
             title: "Post numéro 1",

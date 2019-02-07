@@ -5,7 +5,7 @@ import { REQUEST_POSTS, REQUEST_POSTS_SUCCESS, REQUEST_POSTS_ERROR } from './act
 export function requestPosts() {
     return {
         type: REQUEST_POSTS,
-        status: 'fetching'
+        status: 'fetching',
     }
 }
 
@@ -15,7 +15,7 @@ export function requestPostsSuccess(posts) {
     return {
         type: REQUEST_POSTS_SUCCESS,
         status: 'success',
-        items: posts
+        posts: posts
     }
 }
 
@@ -24,7 +24,7 @@ export function requestPostsSuccess(posts) {
 export function requestPostsError() {
     return {
         type: REQUEST_POSTS_ERROR,
-        status: 'error'
+        status: 'error',
     }
 }
 
@@ -41,7 +41,7 @@ export function fetchPosts() {
                 response => response.json(),
                 error => dispatch(requestPostsError())
             )
-            .then(response => dispatch(requestPostsSuccess(response.posts.items)))
+            .then(response => dispatch(requestPostsSuccess(response.posts.posts)))
     }
 
 }
